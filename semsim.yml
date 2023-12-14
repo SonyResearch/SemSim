@@ -168,7 +168,8 @@ dependencies:
     - torch==1.13.1
     - torchaudio==0.8.1
     - torchmetrics==0.11.1
-    - torchvision==0.9.1+cu101
+    # - torchvision==0.9.1+cu101
+    - torchvision==0.9.1
     - tqdm==4.64.1
     - transformers==4.22.2
     - typing-extensions==4.4.0
@@ -177,4 +178,3 @@ dependencies:
     - xxhash==3.2.0
     - yarl==1.8.2
     - zipp==3.15.0
-prefix: /home/sunxx/miniconda3/envs/ats
