@@ -39,9 +39,10 @@ parser.add_argument('--arch', default=None, required=True, type=str, help='Visio
 parser.add_argument('--data', default=None, required=True, type=str, help='Vision dataset.')
 parser.add_argument('--epochs', default=None, required=True, type=int, help='Vision epoch.')
 parser.add_argument('--resume', default=0, type=int, help='rlabel')
+parser.add_argument('--semsim', default=False, type=bool, help='Semsim')
 
-# used in attch 600
-parser.add_argument('--rec_data_dir', default='benchmark/images/Cifar_ori_600/data_used_generate_RI/',
+# 600 images used in attack
+parser.add_argument('--rec_data_dir', default='benchmark/images/Cifar_ori/',
                     required=False, type=str, help='dir_of_rec_data to be test the acc')
 
 parser.add_argument('--defense', default=None, type=str, help='Existing Defenses')
@@ -201,6 +202,10 @@ def main():
             dm = torch.as_tensor(inversefed.consts.imagenet_mean, **setup)[:, None, None]
             ds = torch.as_tensor(inversefed.consts.imagenet_std, **setup)[:, None, None]
             shape = (3, 112, 112)
+        elif opt.data == 'Dog':
+            dm = torch.as_tensor(inversefed.consts.imagenet_mean, **setup)[:, None, None]
+            ds = torch.as_tensor(inversefed.consts.imagenet_std, **setup)[:, None, None]
+            shape = (3, 64, 64)
         elif opt.data == 'ImageNet':
             dm = torch.as_tensor(inversefed.consts.imagenet_mean, **setup)[:, None, None]
             ds = torch.as_tensor(inversefed.consts.imagenet_std, **setup)[:, None, None]

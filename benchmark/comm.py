@@ -467,7 +467,7 @@ def preprocess(opt, defs, valid=False):
 
     elif opt.data == 'ImageNette':
 
-        loss_fn, _, _, _ = inversefed.construct_dataloaders('Dog', defs,
+        loss_fn, _, _, _ = inversefed.construct_dataloaders('ImageNette', defs,
                                                             opt.rec_data_dir)
         trainset, validset, recset = _build_imagenette('~/data/', opt.rec_data_dir)
 

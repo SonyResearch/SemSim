@@ -24,7 +24,7 @@ parser.add_argument('--data', default=None, required=True, type=str, help='Visio
 # not use in attack
 parser.add_argument('--rec_data_dir', default='assets',
                     required=False, type=str, help='dir_of_rec_data to be test the acc')
-parser.add_argument('--reid', default=False, type=bool, help='Reid')
+parser.add_argument('--semsim', default=False, type=bool, help='semsim')
 parser.add_argument('--epochs', default=None, required=True, type=int, help='Vision epoch.')
 parser.add_argument('--aug_list', default='', required=False, type=str, help='Augmentation method.')
 parser.add_argument('--mode', default=None, required=True, type=str, help='Mode.')

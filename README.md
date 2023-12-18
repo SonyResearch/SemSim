@@ -18,24 +18,48 @@ conda activate semsim
 
 
 ## Getting Started
-####  Step1  train classifier to be evaluatred
+####  Step1:  train classifier to be evaluatred
 ```
 # using cifar-100 as example
 python benchmark/step1_train_classifier.py --data=cifar100 --arch=ResNet20-4 --epochs=200 --aug_list='' --mode=crop
 ```
 
 
-####  Step2 attack classifier to get reconstructed images
+####  Step2: attack classifier to get reconstructed images
+
+Orginal images are needed in this step, you can 
+
+* **use the provided [CIFAR-100 samples](https://drive.google.com/file/d/1TjRNUX5KTzEAXYVhCHROD5ZVE5uFNosE/view?usp=drive_link)**
+
+   (1) download the [CIFAR-100 samples](https://drive.google.com/file/d/1TjRNUX5KTzEAXYVhCHROD5ZVE5uFNosE/view?usp=drive_link)
+ 
+   (2) place the original images in the directory: benchmark/images/Cifar_ori/
+
 ```
-# using cifar-100 as example
-python benchmark/step2_attack.py --data=cifar100 --arch=ResNet20-4 --epochs=200 --aug_list='' --mode=crop --optim='inversed
+# using cifar-100 as example,
+
+python benchmark/step2_attack.py --data=cifar100 --arch=ResNet20-4 --epochs=200 --aug_list='' --mode=crop --optim='inversed'
 ```
 
 
-#### Step3 use different metric to measure the privacy leakage
-```
-# exisitng metric
+* **use your own dataset:**
 
+  (1) if you prefer to use your own dataset, place your dataset in your chosen directory.
+  
+  (2) set the '--rec_data_dir' parameter to the directory containing your dataset.
+
+
+* **reconstructed images:**
+
+   (1) you can also use our prepared reconstructed images for this step. 
+   
+   (2) download them from this [link](https://drive.google.com/file/d/12AXAPTTRyDfUJ3s807Oy-CxXk3E1Py9z/view?usp=sharing).
+
+#### Step3: use different metric to measure the privacy leakage
+
+
+* **Exisitng metric**
+```
 python metrics/pixel_level_metrics
 
 # modify line 137-138 
@@ -44,9 +68,10 @@ python metrics/pixel_level_metrics
 #    folder_names_cifar.txt saves dirs of reconstructed images 
 ```
 
-
+* **Semsim**
 ```
-# train Semsim
+# train Semsim. 
+# Data path is set in the Line 205 of 'inversefed/data/data_processing.py'
 python benchmark\Semsim_train_evaluation.py --data human_anno_id --arch ResNet18 --epochs 100 --mode crop --semsim True
 ```
 
@@ -54,9 +79,11 @@ python benchmark\Semsim_train_evaluation.py --data human_anno_id --arch ResNet18
 ```
 # test Semsim
 python benchmark\Semsim_train_evaluation.py --data human_anno_id --arch ResNet18 --epochs 100 --mode crop --semsim True --evaluate True
+
+# '--targte_data' is the target test set you want to evaluated. The default value is 'cifar100'.
 ```
 
-#### Step4 analyse results
+#### Step4: analyse results
 
 ```
 # caculate correlation between different metrics

@@ -24,7 +24,7 @@ parser = argparse.ArgumentParser(description='Reconstruct some image from a trai
 parser.add_argument('--arch', default=None, required=True, type=str, help='Vision model.')
 parser.add_argument('--data', default=None, required=True, type=str, help='Vision dataset.')
 # not use in attack
-parser.add_argument('--rec_data_dir', default='benchmark/images/Cifar_ori_600/data_used_generate_RI',
+parser.add_argument('--rec_data_dir', default='/home/sunxx/project/ATSPrivacy/benchmark/images/Cifar_ori_600/data_used_generate_RI',
                     required=False, type=str, help='dir_of_rec_data to be test')
 
 parser.add_argument('--epochs', default=None, required=True, type=int, help='Vision epoch.')
@@ -181,7 +181,7 @@ def evaluate_class():
         print(f"class_distance {distance_pos}")
         return np.linalg.norm(feature_raw - feature_rec, axis=1)
 
-def evaluate_semsim():
+def tsevaluate_semsim():
     setup = inversefed.utils.system_startup()
     defs = inversefed.training_strategy('bi-conservative');
     defs.epochs = opt.epochs
