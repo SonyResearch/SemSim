@@ -33,7 +33,7 @@ Orginal images are needed in this step, you can
 
    (1) download the [CIFAR-100 samples](https://drive.google.com/file/d/1TjRNUX5KTzEAXYVhCHROD5ZVE5uFNosE/view?usp=drive_link)
  
-   (2) place the original images in the directory: benchmark/images/Cifar_ori/
+   (2) place the original images in the directory: `benchmark/images/Cifar_ori/`
 
 ```
 # using cifar-100 as example,
@@ -54,6 +54,8 @@ python benchmark/step2_attack.py --data=cifar100 --arch=ResNet20-4 --epochs=200 
    (1) you can also use our prepared reconstructed images for this step. 
    
    (2) download them from this [link](https://drive.google.com/file/d/12AXAPTTRyDfUJ3s807Oy-CxXk3E1Py9z/view?usp=sharing).
+
+   (3) place the original images in the directory: `benchmark/images/cifar100/`
 
 #### Step 3: use different metric to measure the privacy leakage
 
@@ -80,7 +82,7 @@ python benchmark/Semsim_train_evaluation.py --data human_anno_id --arch ResNet18
 # test SemSim
 python benchmark\Semsim_train_evaluation.py --data human_anno_id --arch ResNet18 --epochs 100 --mode crop --semsim True --evaluate True
 
-# '--targte_data' is the target test set you want to evaluated. The default value is 'cifar100'.
+# '--target_data' is the target test set you want to evaluated. The default value is 'cifar100'.
 ```
 
 #### Step 4: analyse results
