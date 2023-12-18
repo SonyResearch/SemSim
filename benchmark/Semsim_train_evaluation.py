@@ -181,7 +181,7 @@ def evaluate_class():
         print(f"class_distance {distance_pos}")
         return np.linalg.norm(feature_raw - feature_rec, axis=1)
 
-def tsevaluate_semsim():
+def evaluate_semsim():
     setup = inversefed.utils.system_startup()
     defs = inversefed.training_strategy('bi-conservative');
     defs.epochs = opt.epochs
