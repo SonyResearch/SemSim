@@ -1,6 +1,10 @@
 # Privacy Assessment on Reconstructed Images: Are Existing Evaluation Metrics Faithful to Human Perception?
 
+<<<<<<< Updated upstream
 This repository is an implementation of the SemSim evalution method discussed in [“Privacy Assessment on Reconstructed Images: Are Existing Evaluation Metrics Faithful to Human Perception?”](https://arxiv.org/pdf/2309.13038.pdf)
+=======
+This repository is an implementation of the Semsim evaluation method discussed in [“Privacy Assessment on Reconstructed Images: Are Existing Evaluation Metrics Faithful to Human Perception?”](https://arxiv.org/pdf/2309.13038.pdf)
+>>>>>>> Stashed changes
 
 [**Project Page**](https://sites.google.com/view/semsim)
 
@@ -18,7 +22,11 @@ conda activate semsim
 
 
 ## Getting Started
+<<<<<<< Updated upstream
 ####  Step 1:  train classifier to be evaluated
+=======
+####  Step1:  train classifier to be evaluated
+>>>>>>> Stashed changes
 ```
 # using cifar-100 as example
 python benchmark/step1_train_classifier.py --data=cifar100 --arch=ResNet20-4 --epochs=200 --aug_list='' --mode=crop
@@ -55,16 +63,24 @@ python benchmark/step2_attack.py --data=cifar100 --arch=ResNet20-4 --epochs=200 
    
    (2) download them from this [link](https://drive.google.com/file/d/12AXAPTTRyDfUJ3s807Oy-CxXk3E1Py9z/view?usp=sharing).
 
+<<<<<<< Updated upstream
    (3) place the original images in the directory: `benchmark/images/cifar100/`
 
 #### Step 3: use different metric to measure the privacy leakage
+=======
+#### Step3: use different metrics to measure the privacy leakage
+>>>>>>> Stashed changes
 
 
 * **Existing metric**
 ```
 python metrics/pixel_level_metrics.py
 
+<<<<<<< Updated upstream
 # modify line 137-138 
+=======
+# modify Lines 137-138 
+>>>>>>> Stashed changes
 #    data_dir_raw= '' # dir of original images 
 #    with open('metrics/folder_names_cifar.txt', 'r') as f: 
 #    folder_names_cifar.txt saves dirs of reconstructed images 
@@ -72,9 +88,15 @@ python metrics/pixel_level_metrics.py
 
 * **SemSim**
 ```
+<<<<<<< Updated upstream
 # train SemSim. 
 # Data path is set in the Line 205 of 'inversefed/data/data_processing.py'
 python benchmark/Semsim_train_evaluation.py --data human_anno_id --arch ResNet18 --epochs 100 --mode crop --semsim True
+=======
+# train Semsim. 
+# Data path is set in Line 205 of 'inversefed/data/data_processing.py'
+python benchmark\Semsim_train_evaluation.py --data human_anno_id --arch ResNet18 --epochs 100 --mode crop --semsim True
+>>>>>>> Stashed changes
 ```
 
 
@@ -82,7 +104,11 @@ python benchmark/Semsim_train_evaluation.py --data human_anno_id --arch ResNet18
 # test SemSim
 python benchmark/Semsim_train_evaluation.py --data human_anno_id --arch ResNet18 --epochs 100 --mode crop --semsim True --evaluate True
 
+<<<<<<< Updated upstream
 # '--target_data' is the target test set you want to evaluated. The default value is 'cifar100'.
+=======
+# '--targte_data' is the target test set you want to evaluate. The default value is 'cifar100'.
+>>>>>>> Stashed changes
 ```
 
 #### Step 4: analyze results
