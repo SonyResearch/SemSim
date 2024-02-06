@@ -79,9 +79,7 @@ Your project
 │   └── ...
 │   └── human_anno_id
 │       └── train_with_ori
-├── Semsim_sony
-│   └── ...
-└── Semsim_sony
+└── Semsim_code
 
 ```
 
