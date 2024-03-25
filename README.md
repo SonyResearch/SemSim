@@ -1,14 +1,21 @@
-# Privacy Assessment on Reconstructed Images: Are Existing Evaluation Metrics Faithful to Human Perception?
+# SemSim
 
-This repository is an implementation of the Semsim evalution method discussed in [“Privacy Assessment on Reconstructed Images: Are Existing Evaluation Metrics Faithful to Human Perception?”](https://arxiv.org/pdf/2309.13038.pdf)
+**Privacy Assessment on Reconstructed Images: Are Existing Evaluation Metrics Faithful to Human Perception?**
+Xiaoxiao Sun, Nidham Gazagnadou, Vivek Sharma, Lingjuan Lyu, Hongdong Li, Liang Zheng
+Spotlight at NeurIPS 2023
 
-[**Project Page**](https://sites.google.com/view/semsim)
+[[Paper](https://arxiv.org/pdf/2309.13038.pdf)]
+[[Project Page](https://sites.google.com/view/semsim)]
+[[Talk](https://nips.cc/virtual/2023/poster/71059)]
 
 
----
+## Code overview
+
 The important experimental part can be found at ```benchmark/```.
 
 The existing matrics can be found at ```metrics/```.
+
+
 ## Setup
 You can use [anaconda](https://www.anaconda.com/distribution/) to install our setup by running
 ```
@@ -18,14 +25,14 @@ conda activate semsim
 
 
 ## Getting Started
-####  Step1:  train classifier to be evaluatred
+
+### Step 1: train classifier to be evaluatred
 ```
 # using cifar-100 as example
 python benchmark/step1_train_classifier.py --data=cifar100 --arch=ResNet20-4 --epochs=200 --aug_list='' --mode=crop
 ```
 
-
-####  Step2: attack classifier to get reconstructed images
+### Step 2: attack classifier to get reconstructed images
 
 Orginal images are needed in this step, you can 
 
@@ -41,7 +48,6 @@ Orginal images are needed in this step, you can
 python benchmark/step2_attack.py --data=cifar100 --arch=ResNet20-4 --epochs=200 --aug_list='' --mode=crop --optim='inversed'
 ```
 
-
 * **use your own dataset:**
 
   (1) if you prefer to use your own dataset, place your dataset in your chosen directory.
@@ -55,8 +61,7 @@ python benchmark/step2_attack.py --data=cifar100 --arch=ResNet20-4 --epochs=200 
    
    (2) download them from this [link](https://drive.google.com/file/d/1oVPBE0dyCf8eD1-JIu_PeLZ--_bxY6ZN/view?usp=sharing). We also provide some intermediate experimental results, such as prediction socres, top-5.
 
-#### Step3: use different metric to measure the privacy leakage
-
+### Step 3: use different metrics to measure the privacy leakage
 
 * **Exisitng metric**
 ```
@@ -80,7 +85,6 @@ Your project
 │   └── human_anno_id
 │       └── train_with_ori
 └── Semsim_code
-
 ```
 
 place the [data](https://drive.google.com/file/d/1M0xnG8mHa2sZHXYrHYWlkeFLZ2XtR0Jm/view?usp=sharing) in the directory: ../data/
@@ -97,9 +101,11 @@ python benchmark\Semsim_train_evaluation.py --data human_anno_id --targte_data c
 # '--targte_data' is the target test set you want to evaluated. The default value is 'cifar100'.
 ```
 
+## Acknowledgement 
+We express gratitudes to the great work [ATSPrivacy](https://github.com/gaow0007/ATSPrivacy), [Inverting Gradients](https://github.com/JonasGeiping/invertinggradients) and [DLG](https://github.com/mit-han-lab/dlg) as we benefit a lot from both their papers and codes.
 
 
-# Citation 
+## Citation 
 
 Please cite this paper if it helps your research:
 ```bibtex
@@ -110,9 +116,3 @@ Please cite this paper if it helps your research:
   year={2023}
 }
 ```
-
-# Acknowledgement 
-We express gratitudes to the great work [ATSPrivacy](https://github.com/gaow0007/ATSPrivacy), [Inverting Gradients](https://github.com/JonasGeiping/invertinggradients) and [DLG](https://github.com/mit-han-lab/dlg) as we benefit a lot from both their papers and codes.
-
-# License
-This repository is released under the MIT license. 
