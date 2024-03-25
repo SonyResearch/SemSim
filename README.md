@@ -109,7 +109,7 @@ We express gratitudes to the great work [ATSPrivacy](https://github.com/gaow0007
 
 ## Citation 
 
-Please cite this paper if it helps your research:
+If you find this repository useful for your research, please consider citing our work:
 ```bibtex
 @inproceedings{sun2023privacy,
   title={Privacy Assessment on Reconstructed Images: Are Existing Evaluation Metrics Faithful to Human Perception?},
