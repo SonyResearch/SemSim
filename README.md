@@ -9,6 +9,8 @@ Spotlight at NeurIPS 2023
 [[Talk](https://nips.cc/virtual/2023/poster/71059)]
 
 
+![](img/SemSim.png)
+
 ## Code overview
 
 The important experimental part can be found at ```benchmark/```.
